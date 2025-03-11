@@ -115,3 +115,5 @@ dmypy.json
 
 # FastAPI
 *.db
+
+public/
