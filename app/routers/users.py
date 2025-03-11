@@ -1,7 +1,5 @@
-from typing import Annotated
 from datetime import datetime, timedelta, timezone
 from fastapi import APIRouter, HTTPException, status, Depends
-from fastapi.security import OAuth2PasswordRequestForm
 
 import jwt
 from passlib.context import CryptContext
@@ -16,7 +14,9 @@ from app.auth import get_user
 from app.schemas.user import BaseUser, Token, UserCreate, UserLogin
 
 
-router = APIRouter()
+router = APIRouter(
+    tags=["Auth"],
+)
 
 # Password hashing
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
